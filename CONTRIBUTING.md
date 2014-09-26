@@ -1,76 +1,77 @@
-## Questions about XBMC?
+# Contributing to SickBeard
 
-To get your questions answered, please ask in the XBMC [Forum] or on IRC: #xbmc on freenode.net
+1. [Getting Involved](#getting-involved)
+2. [How To Report Bugs](#how-to-report-bugs)
+3. [Tips For Submitting Code](#tips-for-submitting-code)
 
-Do not open an issue.
 
-## Issue Reports
 
-XBMC uses github for development only, i.e. for pull requests and the discussion of code.
+## Getting Involved
 
-So we use a hook script to automatically close new issue created by you.
+There are a number of ways to get involved with the development of SickBeard. Even if you've never contributed code to an Open Source project before, we're always looking for help identifying bugs, cleaning up code, writing documentation and testing.
 
-If you can, we encourage you to investigate the issue yourself and create a Pull Request for us to review.
+The goal of this guide is to provide the best way to contribute to the official SickBeard repository. Please read through the full guide detailing [How to Report Bugs](#how-to-report-bugs).
 
-For bug reports, feature requests and all other support, please go to http://forum.xbmc.org.
+## Discussion
 
-## Pull Requests
+### Forum and IRC
 
-- Before creating a pull request please read our general code guidelines that can be found here
-  http://wiki.xbmc.org/index.php?title=XBMC_development
+The SickBeard development team frequently tracks posts on the [SickBeard Forum](http://www.sickbeard.com/forums/). If you have longer posts or questions please feel free to post them there. If you think you've found a bug please [file it in the bug tracker](#how-to-report-bugs).
 
-- **Create topic branches**. Don't ask us to pull from your master branch.
+Additionally most of the SickBeard development team can be found in the [#sickbeard](http://webchat.freenode.net/?channels=sickbeard) IRC channel on irc.freenode.net.
 
-- **One pull request per feature**. If you want to do more than one thing, send
-  multiple pull requests.
 
-- **Send coherent history**. Make sure each individual commit in your pull
-  request is meaningful. If you had to make multiple intermediate commits while
-  developing, please squash them before sending them to us. IN the end before merging you may be asked to squash your commit even some more.
+## How to Report Bugs
 
-Please follow this process; it's the best way to get your work included in the project:
+### Make sure it is a SickBeard bug
 
-- [Fork](http://help.github.com/fork-a-repo/) the project, clone your fork,
-   and configure the remotes:
+Many bugs reported are actually issues with the user mis-understanding of how something works (there are a bit of moving parts to an ideal setup) and most of the time can be fixed by just changing some settings to fit the users needs.
 
-```bash
-   # clone your fork of the repo into the current directory in terminal
-   git clone git@github.com:<your username>/xbmc.git
-   # navigate to the newly cloned directory
-   cd xbmc
-   # assign the original repo to a remote called "upstream"
-   git remote add upstream https://github.com/xbmc/xbmc.git
-   ```
+If you are new to SickBeard, it is usually a much better idea to ask for help first in the [Using SickBeard Forum](http://www.sickbeard.com/forums/) or the [SickBeard IRC channel](http://webchat.freenode.net/?channels=sickbeard). You will get much quicker support, and you will help avoid tying up the SickBeard team with invalid bug reports.
 
-- If you cloned a while ago, get the latest changes from upstream:
+[SickBeard Issue Tracker](http://code.google.com/p/sickbeard/issues/list)
 
-   ```bash
-   # fetch upstream changes
-   git fetch upstream
-   # make sure you are on your 'master' branch
-   git checkout master
-   # merge upstream changes
-   git merge upstream/master
-   ```
 
-- Create a new topic branch to contain your feature, change, or fix:
+### Try the latest version of SickBeard
 
-   ```bash
-   git checkout -b <topic-branch-name>
-   ```
+Bugs in old versions of SickBeard may have already been fixed. In order to avoid reporting known issues, make sure you are always testing against the latest build/source. Also, we put new code in the `development` branch first before pushing down to the `master` branch (which is what the binary builds are built off of).
 
-- Commit your changes in logical chunks. or your pull request is unlikely
-   be merged into the main project. Use git's
-   [interactive rebase](https://help.github.com/articles/interactive-rebase)
-   feature to tidy up your commits before making them public.
 
-- Push your topic branch up to your fork:
+## Tips For Submitting Code
 
-   ```bash
-   git push origin <topic-branch-name>
-   ```
 
-- [Open a Pull Request](https://help.github.com/articles/using-pull-requests) with a
-    clear title and description.
+### Code
 
-[Forum]: http://forum.xbmc.org/
+**NEVER write your patches to the master branch** - it gets messy (I say this from experience!)
+
+**ALWAYS USE A "TOPIC" BRANCH!** Personally I like the `branch-feature_name` format that way its easy to identify the branch and feature at a glance. Also please make note of any forum post / google code issue number in the pull commit so we know what you are solving (it helps with cleaning up the related items later).
+
+
+Please follow these guidelines before reporting a bug:
+
+1. **Update to the latest version** &mdash; Check if you can reproduce the issue with the latest version from the `development` branch.
+
+2. **Use the SickBeard Forums search** &mdash; check if the issue has already been reported. If it has been, please comment on the existing issue.
+
+3. **Provide a means to reproduce the problem** &mdash; Please provide as much details as possible, e.g. SickBeard log files (obfuscate apikey/passwords), browser and operating system versions, how you started SickBeard, and of course the steps to reproduce the problem.
+
+
+### Feature requests
+
+Please follow the bug guidelines above for feature requests, i.e. update to the latest version and search for existing issues before posting a new request.
+
+### Pull requests
+
+[Pull requests](https://help.github.com/articles/using-pull-requests) are welcome and the preferred way of accepting code contributions.
+
+Please follow these guidelines before sending a pull request:
+
+1. Update your fork to the latest upstream version.
+
+2. Use the `development` branch to base your code off of.
+
+3. Follow the coding conventions of the original repository. Do not change line endings of the existing file, as this will rewrite the file and loses history.
+
+4. Keep your commits as autonomous as possible, i.e. create a new commit for every single bug fix or feature added.
+
+5. Always add meaningful commit messages. We should not have to guess at what your code is suppose to do.
